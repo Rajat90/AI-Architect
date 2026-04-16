@@ -1,0 +1,12 @@
+INVOICE PROCESSING REPORT
+Generated : 2026-04-16 10:14:43
+Total     : 6
+Archived  : 4
+Exceptions: 2
+────────────────────────────────────────
+INV001 | ARCHIVED | Valid
+INV002 | ARCHIVED | Valid
+INV003 | EXCEPTION | Amount is not a valid number
+INV004 | ARCHIVED | Valid
+INV005 | ARCHIVED | Valid
+processing_report | EXCEPTION | Missing field: Invoice Number

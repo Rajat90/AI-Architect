@@ -1,0 +1,147 @@
+TUTOR HANDOVER DOCUMENT — Rajat's AI Architect Curriculum
+
+=== WHO I AM ===
+Name: Rajat
+Current Role: RPA Architect at a company with 30 UiPath bots in production
+Target Role: AI Automation Architect / Agentic AI Engineer
+Background: Deep expertise in UiPath Orchestrator, RE Framework, 
+            bot governance, process design. No prior coding experience 
+            before this curriculum.
+Languages known: Python basics (actively learning), C#/VB.NET basics
+Budget: $10-20/month
+Study schedule: Weekdays only, 1-1.5 hours/day
+Location: Frankfurt, Germany
+
+=== CURRICULUM OVERVIEW ===
+24-week program, 5 phases:
+- Phase 1 (Weeks 1–6):   Python Foundations ← CURRENTLY HERE
+- Phase 2 (Weeks 7–12):  Claude Code + MCP
+- Phase 3 (Weeks 13–18): Agent Frameworks (LangGraph, CrewAI)
+- Phase 4 (Weeks 19–22): Portfolio Projects
+- Phase 5 (Weeks 23–24): Job Hunt + Interview Prep
+
+=== CURRENT POSITION ===
+Week 3, Day 2 — COMPLETED
+Next session: Week 3, Day 3
+
+=== TESTS COMPLETED ===
+Week 1 Test: PASSED (after retest — fixed :.2f and elif)
+Week 2 Test: PASSED (after retest — fixed :.2f, .items(), return vs print)
+
+=== CONCEPTS MASTERED ===
+
+WEEK 1 — Python Basics:
+✅ print(), variables (str, int, float)
+✅ input(), int(), float(), str() conversion
+✅ f-strings including :.2f decimal formatting
+✅ if/elif/else (NOT elseif — common mistake, now fixed)
+✅ Basic math operators
+✅ Running .py files from terminal
+
+WEEK 2 — Control Flow & Structure:
+✅ Lists — create, index [0], [-1], len()
+✅ For loops — over lists and dictionaries
+✅ .items() for looping dictionaries (key, value pairs)
+✅ While loops — counter pattern, break
+✅ Functions — def, parameters, return (NOT print inside functions!)
+✅ Docstrings — """description"""
+✅ Modules — import, from X import Y
+✅ if __name__ == "__main__" pattern
+✅ Tuples and tuple unpacking
+
+WEEK 3 — File Automation (in progress):
+✅ os module — getcwd(), listdir(), path.exists(), 
+               path.isfile(), path.isdir(), makedirs(),
+               path.join(), path.getsize()
+✅ .endswith() for file type filtering
+✅ shutil — copy(), move()
+✅ datetime — now(), strftime() formatting
+✅ List of dictionaries pattern
+✅ Reading and parsing structured text files
+✅ encoding="utf-8" (learned from real UnicodeEncodeError)
+
+=== FILES BUILT SO FAR ===
+LearnPython/
+├── bot_functions.py          ← reusable module with 5 functions:
+│                                calculate_success_rate()
+│                                get_health_status()
+│                                get_recommendation()
+│                                classify_error()
+│                                format_bot_report()
+│
+├── bot_calculator.py         ← interactive bot performance calculator
+├── bot_status.py             ← bot status report
+├── bot_errors.py             ← error list practice
+├── error_classifier.py       ← v1 basic classifier
+├── error_classifier_v2.py    ← v2 with dictionaries + unknown detection
+├── error_classifier_v3.py    ← v3 functions-based, production structure
+├── error_classifier_v4.py    ← v4 imports bot_functions module
+├── daily_report.py           ← imports bot_functions, reports 6 bots
+├── file_automation.py        ← os module exploration
+├── invoice_processor.py      ← full invoice automation (Day 2 Week 3)
+│
+├── bot_logs/                 ← folder with 4 bot log files
+│   ├── vertrag_log.txt
+│   ├── invoicebot_log.txt
+│   ├── hrbot_log.txt
+│   └── financebot_log.txt
+│
+└── invoices/                 ← invoice processing workspace
+    ├── archived/             ← successfully processed invoices
+    ├── exceptions/           ← invalid invoices
+    └── INV001-005.txt        ← (INV003, INV004 are exception cases)
+
+=== PORTFOLIO PROJECT IN PROGRESS ===
+Invoice Processor — automates reading, validating, sorting invoices
+Current state: Fully working — reads folder, validates fields,
+               moves to archived/exceptions, generates timestamped report
+Next upgrade (Week 7): Replace rule-based validation with Claude AI
+
+=== RECURRING MISTAKES TO WATCH ===
+1. Using elseif instead of elif — fixed, now automatic
+2. :.2f missing in f-strings — fixed, now automatic  
+3. Putting print() inside functions instead of return — 
+   still needs reinforcement, flag if it appears again
+4. Nesting functions inside functions — corrected once
+
+=== TEACHING STYLE THAT WORKS FOR RAJAT ===
+- Always connect Python concepts to UiPath equivalents
+- Every concept needs 3 layers: 
+  (1) what it is, (2) automation application, (3) AI agent connection
+- Real files and real data — no purely abstract exercises
+- Show exact expected output so he knows what to aim for
+- Daily builds — he must write and run code every session
+- Friday tests — 5 questions, need 4/5 to advance
+- If 3/5: identify exact gaps, targeted retest on those only
+- He responds well to: honest feedback, clear error explanations,
+  showing how today's work connects to his end goal
+- He is building toward: Bot Health Monitor Agent (portfolio project)
+  which uses UiPath Orchestrator API + Claude AI
+
+=== NEXT SESSION INSTRUCTIONS ===
+Start Week 3, Day 3.
+
+Topic: pathlib — modern file path handling
+
+What to cover:
+- pathlib.Path() as modern replacement for os.path
+- Path.glob() to find files with patterns
+- Upgrade invoice_processor.py to use pathlib
+- Process a folder with mixed file types
+- Add pathlib to bot_functions.py
+
+Day 3 builds directly on invoice_processor.py 
+already built in Day 2.
+
+Milestone for Week 3: 
+Complete invoice processor that reads a whole folder,
+validates each invoice, archives processed files,
+quarantines exceptions, generates timestamped report.
+All using os + shutil + datetime + pathlib.
+
+=== HOW TO START NEW SESSION ===
+Tutor should:
+1. Acknowledge the handover
+2. Confirm current position (Week 3, Day 3)
+3. Ask if Day 2 invoice_processor.py is working correctly
+4. Then begin Day 3 lesson on pathlib

@@ -1,0 +1,7 @@
+INVOICE
+Invoice Number : INV001
+Vendor         : Siemens AG
+Amount         : 15000.00
+Currency       : EUR
+Date           : 2024-01-15
+Status         : Pending

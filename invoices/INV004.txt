@@ -1,0 +1,7 @@
+INVOICE
+Invoice Number : INV004
+Vendor         : BMW Group
+Amount         : 42000.00
+Currency       : EUR
+Date           :
+Status         : Pending

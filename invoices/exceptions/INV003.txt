@@ -1,0 +1,7 @@
+INVOICE
+Invoice Number : INV003
+Vendor         : Deutsche Telekom
+Amount         :
+Currency       : EUR
+Date           : 2024-01-15
+Status         : Pending

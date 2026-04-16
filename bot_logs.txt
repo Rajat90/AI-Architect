@@ -1,0 +1,15 @@
+Vertrag | 2024-01-15 09:00 | Timeout
+Vertrag | 2024-01-15 09:05 | Timeout
+InvoiceBot | 2024-01-15 09:10 | Login Failed
+HRBot | 2024-01-15 09:15 | System Error
+Vertrag | 2024-01-15 09:20 | Timeout
+InvoiceBot | 2024-01-15 09:25 | Data Not Found
+FinanceBot | 2024-01-15 09:30 | Login Failed
+HRBot | 2024-01-15 09:35 | System Error
+EmailBot | 2024-01-15 09:40 | Timeout
+FinanceBot | 2024-01-15 09:45 | Login Failed
+KK Bot | 2026-01-15 02:25 | Connection Refused
+KK Bot | 2026-01-15 02:25 | Permission Denied
+KIK Bot | 2026-01-15 02:25 | Connection Refused
+Kaufland Bot | 2026-01-15 02:25 | Connection Refused
+Test Bot | 2026-01-15 02:25 | Test

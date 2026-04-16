@@ -1,0 +1,10 @@
+BOT ERROR CLASSIFICATION REPORT
+Generated automatically by error_classifier.py
+================================================
+Network Issues : 4
+Auth Issues    : 3
+Data Issues    : 1
+System Issues  : 6
+------------------------------------------------
+Total Errors   : 14
+================================================

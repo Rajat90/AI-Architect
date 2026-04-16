@@ -1,0 +1,11 @@
+INVOICE PROCESSING REPORT
+Generated : 2026-04-16 10:04:01
+Total     : 5
+Archived  : 0
+Exceptions: 5
+────────────────────────────────────────
+INV001 | EXCEPTION | Missing field: INVOICE_ID
+INV002 | EXCEPTION | Missing field: INVOICE_ID
+INV003 | EXCEPTION | Missing field: INVOICE_ID
+INV004 | EXCEPTION | Missing field: INVOICE_ID
+INV005 | EXCEPTION | Missing field: INVOICE_ID
