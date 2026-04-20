@@ -1,0 +1,41 @@
+# Bot Error Log Collector
+# Simulates what RE Framework does when collecting exceptions in a queue run
+
+error_log = []
+error_log_business = []
+
+# Simulate 5 bot transactions
+transactions = [
+    ("TXN001", "success"),
+    ("TXN002", "BusinessException"),
+    ("TXN003", "success"),
+    ("TXN004", "SystemException"),
+    ("TXN005", "BusinessException"),
+    ("TXN006", "AuthError"),
+]
+
+error_log_com = [(txnid, status) for txnid, status in transactions if "Exception" in status]
+print (error_log_com)
+
+txn_ids = [(txnid) for txnid, status in transactions if "success" not in status]
+print (txn_ids)
+
+all_status = [status.upper()  for txnid, status in transactions]
+print (all_status)
+
+# for txn_id, status in transactions:
+#     if status != "success":
+#         error_log.append(f"{txn_id}: {status}")
+#         if "Business" in status:
+#             error_log_business.append(f"{txn_id} : {status}")
+
+
+
+# print(f"Total errors: {len(error_log)}")
+# print("Error log:")
+# for entry in error_log:
+#     print(f"  - {entry}")
+
+# print(f"Total business errors: {len(error_log_business)}")
+# print (error_log)
+# print (error_log_business)    

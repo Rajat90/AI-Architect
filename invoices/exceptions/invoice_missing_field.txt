@@ -1,0 +1,6 @@
+INVOICE
+Invoice Number : INV001missing
+Vendor         : Siemens AG
+Amount         : 15000.00
+Currency       : EUR
+Status         : Pending

@@ -1,11 +1,11 @@
 INVOICE PROCESSING REPORT
-Generated : 2026-04-16 10:04:01
+Generated : 2026-04-17 09:42:33
 Total     : 5
-Archived  : 0
-Exceptions: 5
+Archived  : 1
+Exceptions: 4
 ────────────────────────────────────────
-INV001 | EXCEPTION | Missing field: INVOICE_ID
-INV002 | EXCEPTION | Missing field: INVOICE_ID
-INV003 | EXCEPTION | Missing field: INVOICE_ID
-INV004 | EXCEPTION | Missing field: INVOICE_ID
-INV005 | EXCEPTION | Missing field: INVOICE_ID
+invoice_bad_amount | EXCEPTION | Amount is not a valid number
+invoice_good.txt | ARCHIVED | Valid
+invoice_missing_field | EXCEPTION | Missing field: Date
+invoice_negative | EXCEPTION | Amount must be greater than 0
+processing_report | EXCEPTION | Missing field: Invoice Number

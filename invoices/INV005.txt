@@ -1,7 +1,0 @@
-INVOICE
-Invoice Number : INV005
-Vendor         : Bosch GmbH
-Amount         : 6750.25
-Currency       : EUR
-Date           : 2024-01-15
-Status         : Pending

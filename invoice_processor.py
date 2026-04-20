@@ -41,45 +41,66 @@ def process_invoices():
     generates timestamped report.
     """
 
-    # glob() replaces your manual loop + endswith() check
-    invoice_files = list(INVOICE_FOLDER.glob("*.txt"))
+# glob() replaces your manual loop + endswith() check
+    try:
+        invoice_files = list(INVOICE_FOLDER.glob("*.txt"))
+    except OSError as e:
+        print(f"❌ Cannot access invoice folder: {e}")
+        return # Stop here
+    
 
-    if not invoice_files:
-        print("No invoices found to process.")
-        return
+    # if not invoice_files:
+    #     print("No invoices found to process.")
+    #     return
 
+    
     print(f"Found {len(invoice_files)} invoice(s) to process.\n")
-
     results = []
 
     for invoice_path in invoice_files:
-
-        # .stem replaces your manual filename splitting
         invoice_id = invoice_path.stem
         print(f"Processing: {invoice_path.name}")
+    
+        try:
+            content = invoice_path.read_text(encoding="utf-8")
+            is_valid, reason = validate_invoice(content, invoice_path.name)
 
-        content = invoice_path.read_text(encoding="utf-8")
+            if is_valid:
+                destination = ARCHIVED_FOLDER / invoice_path.name
+                try:
+                    shutil.move(str(invoice_path), str(destination))
+                    status = "ARCHIVED"
+                except (OSError, shutil.Error) as e:
+                    print(f"  ❌ Could not move {invoice_path.name}: {e}")
+                    status = "EXCEPTION"
+                    reason = f"Move failed: {e}"
+            else:
+                destination = EXCEPTIONS_FOLDER / invoice_path.name
+                try:
+                    shutil.move(str(invoice_path), str(destination))
+                    status = "EXCEPTION"
+                except (OSError, shutil.Error) as e:
+                    print(f"  ❌ Could not move {invoice_path.name}: {e}")
+                    status = "EXCEPTION"
+                    reason = f"Move failed: {e}"
 
-        is_valid, reason = validate_invoice(content, invoice_path.name)
-
-        if is_valid:
-            destination = ARCHIVED_FOLDER / invoice_path.name
-            shutil.move(str(invoice_path), str(destination))
-            status = "ARCHIVED"
-        else:
-            destination = EXCEPTIONS_FOLDER / invoice_path.name
-            shutil.move(str(invoice_path), str(destination))
+        except FileNotFoundError:
+            print(f"  ⚠️ File vanished mid-run: {invoice_path.name}")
             status = "EXCEPTION"
+            reason = "File not found during read"
 
-        results.append({
-            "invoice_id": invoice_id,
-            "status": status,
-            "reason": reason,
-            "filename": invoice_path.name
-        })
+        finally:
+            # ← Runs for EVERY invoice, always
+            print(f"  🔄 Attempted: {invoice_path.name}")
+            results.append({
+                "invoice_id": invoice_id,
+                "status": status,
+                "reason": reason,
+                "filename": invoice_path.name
+            })
+            print(f"  Status : {status}")
+            print(f"  Reason : {reason}\n")
 
-        print(f"  Status : {status}")
-        print(f"  Reason : {reason}\n")
 
     # --- GENERATE REPORT ---
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -101,10 +122,12 @@ def process_invoices():
     report_text = "\n".join(report_lines)
 
     # .write_text() replaces open() + write() + close()
-    REPORT_FILE.write_text(report_text, encoding="utf-8")
-
-    print(report_text)
-    print(f"\nReport saved to: {REPORT_FILE}")
+    try:
+        REPORT_FILE.write_text(report_text, encoding="utf-8")
+        print(report_text)
+        print(f"\nReport saved to: {REPORT_FILE}")
+    except OSError as e:
+        print(f"❌ Could not save report: {e}")
 
 
 if __name__ == "__main__":
