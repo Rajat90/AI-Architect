@@ -1,0 +1,13 @@
+BOT FLEET MONITOR REPORT
+Generated: 2026-04-22 11:50:40
+==================================================
+
+BOT_001 | AP_Invoices | Running | Error Rate: 2.4% | Health: OK
+BOT_002 | HR_Onboarding | Failed | Error Rate: 27.8% | Health: Critical
+BOT_003 | AP_Invoices | Idle | Error Rate: 0.0% | Health: OK
+BOT_004 | Finance_Recon | Running | Error Rate: 6.5% | Health: OK
+
+==================================================
+Total Bots:      4
+Total Processed: 158
+Critical Bots:   1
