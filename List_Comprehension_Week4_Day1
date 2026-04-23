@@ -1,0 +1,8 @@
+# Agent filters only high-priority tasks from tool response
+tool_output = [
+    {"id": 1, "priority": "HIGH"},
+    {"id": 2, "priority": "LOW"},
+    {"id": 3, "priority": "HIGH"}
+]
+urgent = [t for t in tool_output if t["priority"] == "HIGH"]
+print(urgent)
