@@ -23,3 +23,30 @@ print(failed_bots)
 # Now build a dictionary called fail_count
 failed_count = {bot: failed_bots.count(bot) for bot in failed_bots}
 print(failed_count)
+
+
+# Sort bots by failure count (ascending)
+#ranked_bots = sorted(failed_count.items(), key=lambda x: x[1])
+ranked_bots = sorted(failed_count.items(), key=lambda x: x[1], reverse=True)
+print(ranked_bots)
+
+# find the single bot with the highest failure count from failed_count
+worst_offender = max(failed_count.items(), key=lambda x: x[1])
+print(f"Worst offender: {worst_offender[0]} with {worst_offender[1]} failures")
+
+#Add a new function rank_bots(failed_count) that:
+
+
+def rank_bots(failed_count):
+    bot_rank = sorted(failed_count.items(), key=lambda x: x[1], reverse=True)
+    worst_offender = bot_rank[0]
+    print(f"=== Bot Failure Ranking ===")
+    #for bot, count in bot_rank:
+    #    print(f"{bot}: {count} failures")
+    for i, (bot, count) in enumerate(bot_rank, start=1):
+        print(f"{i}. {bot:<15}: {count} failures")   
+    print()    
+    print(f"Worst offender: {worst_offender[0]} with {worst_offender[1]} failures")
+
+if __name__ == "__main__":
+    rank_bots(failed_count)

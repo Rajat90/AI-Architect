@@ -1,7 +1,8 @@
 # ============================================
 # bot_functions.py — Reusable Bot Automation Library
 # ============================================
-
+import os
+from datetime import datetime
 
 def calculate_success_rate(total_runs, total_failures):
     """Calculates success rate percentage for a bot."""
@@ -66,6 +67,22 @@ def format_bot_report(bot_name, runs, failures):
 {'=' * 45}"""
     return report
 
+
+def save_report(report_text, filename):
+    os.makedirs("reports", exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"reports/fleet_report_{timestamp}.txt"
+    try:
+        with open(filename, "w") as f:
+            f.write(report_text)
+    except PermissionError as e:
+        print(f"Permission denied: {e}")
+    except OSError as e:
+        print(f"Write failed: {e}")
+    else:
+        print(f"Report saved: {filename}")
+    finally:        
+        print("Save attempt complete")
 
 # ============================================
 # This block ONLY runs when you execute this

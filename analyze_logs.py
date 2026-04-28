@@ -1,3 +1,5 @@
+import log_cleaner
+
 # Bot Log Analyzer — Week 4 Day 1
 # Data: list of bot run logs (your "queue items" from UiPath world)
 
@@ -12,8 +14,19 @@ bot_logs = [
     {"bot": "HR_Bot", "status": "FAILED", "error": "FileNotFoundError"},
 ]
 
+raw_logs = [
+    "  Invoice_Bot | FAILED | FileNotFoundError  ",
+    "HR-Bot | SUCCESS | None",
+    "  invoice_bot | FAILED | ValueError  ",
+    "Payroll_Bot|FAILED|OSError",
+    "  HR-Bot | failed | TimeoutError  ",
+    "PAYROLL_BOT | SUCCESS | None",
+]
 
-def analyze_logs (bot_logs):
+
+
+def analyze_logs (raw_logs):
+    bot_logs= log_cleaner.clean_logs(raw_logs)
 # Extract falied results
     failed_results = [res for res in bot_logs if res["status"] == "FAILED"]
     
@@ -32,5 +45,5 @@ def print_failed_count(failed_count):
     print("="*30)
 
 if __name__ == "__main__":
-    failed_count = analyze_logs(bot_logs)
+    failed_count = analyze_logs(raw_logs)
     print_failed_count(failed_count)    
